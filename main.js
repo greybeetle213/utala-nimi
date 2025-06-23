@@ -1,3 +1,7 @@
+//bug with hover text on mobile
+//bug with cookies
+
+
 nimi_pi_sitelen_lasina = ["a", "akesi","ala","alasa","ale","anpa","ante","anu","awen","e","en","esun","ijo","ike","ilo","insa","jaki","jan","jelo","jo","kala","kalama","kama","kasi","ken","kepeken","kili","kiwen","ko","kon","kule","kulupu","kute","la","lape","laso","lawa","len","lete","li","lili","linja","lipu","loje","lon","luka","lukin","lupa","ma","mama","mani","meli","mi","mije","moku","moli", "monsi","mu","mun","musi","mute","nanpa","nasa","nasin","nena","ni","nimi","noka","o","olin","ona","open","pakala","pali","palisa","pan","pana","pi","pilin","pimeja","pini","pipi","poka","poki","pona","pu","sama","seli","selo","seme","sewi","sijelo","sike","sin","sina","sinpin","sitelen","sona","soweli","suli","suno","supa","suwi","tan","taso","tawa","telo","tenpo","toki","tomo","tonsi","tu","unpa","uta","utala","walo","wan","waso","wawa","weka","wile","*"]
 nimi_pi_sitelen_pona = ["󱤀", "󱤁","󱤂","󱤃","󱤄","󱤅","󱤆","󱤇","󱤈","󱤉","󱤊","󱤋","󱤌","󱤍","󱤎","󱤏","󱤐","󱤑","󱤒","󱤓","󱤔","󱤕","󱤖","󱤗","󱤘","󱤙","󱤚","󱤛","󱤜","󱤝","󱤞","󱤟","󱤠","󱤡","󱤢","󱤣","󱤤","󱤥","󱤦","󱤧","󱤨","󱤩","󱤪","󱤫","󱤬","󱤭","󱤮","󱤯","󱤰","󱤱","󱤲","󱤳","󱤴","󱤵","󱤶","󱤷","󱤸","󱤹","󱤺","󱤻","󱤼","󱤽","󱤾","󱤿","󱥀","󱥁","󱥂","󱥃","󱥄","󱥅","󱥆","󱥇","󱥈","󱥉","󱥊","󱥋","󱥌","󱥍","󱥎","󱥏","󱥐","󱥑","󱥒","󱥓","󱥔","󱥕","󱥖","󱥗","󱥘","󱥙","󱥚","󱥛","󱥜","󱥝","󱥞","󱥟","󱥠","󱥡","󱥢","󱥣","󱥤","󱥥","󱥦","󱥧","󱥨","󱥩","󱥪","󱥫","󱥬","󱥭","󱥾","󱥮","󱥯","󱥰","󱥱","󱥲","󱥳","󱥴","󱥵","󱥶","󱥷","󱦜"]
 points = 0
@@ -24,14 +28,20 @@ upgrades = {
 lastMove = 0
 touchStartedTime = 0
 unseenUpgrades = Object.values(upgrades) //upgrades not yet shown to the player
+highscore = 0
 
 function readCookies(){
-    if(document.cookie){
-        var cookie = Number(document.cookie.split("=")[1])
+    if(document.cookie.indexOf("highscore")!=-1){
+        var cookie = document.cookie.split("highscore=")[1]
+        if(cookie.indexOf(";")!=-1){
+            cookie = cookie.split(";")[0]
+        }
+        cookie = Number(cookie)
     }else{
         document.cookie = "highscore=0"
         var cookie = 0
     }
+    highscore = cookie
     document.getElementById("highscore").innerHTML = base10ToNnp(cookie)
 }
 
@@ -229,7 +239,7 @@ function init(){
     document.getElementById("startScreen").style.opacity = 0
     setTimeout(()=>{document.getElementById("startScreen").style.display = "none"},120)
     powerUpCountdown = 10
-    powerUpIncrement = 5
+    powerUpIncrement = 10
     powerUpMax = 10
     handbox = document.getElementById("hand")
     powerUpCountdownElem = document.getElementById("powerUpCountdown")
@@ -296,7 +306,7 @@ function updateElem(word){
     if(word.upgrade){
         elem.className = "upgradedLetterBox"
         elem.innerHTML += "<span class='upgradeName'>"+word.upgrade.nimi+"</span>"
-        elem.onmouseover = ()=>{hoverUpgradedWord(word)}
+        elem.onmouseover = ()=>{if(lastMove > Date.now()-100){return}hoverUpgradedWord(word)}
         elem.onmouseout = ()=>{document.getElementById("toolTip").style.visibility="hidden"}
 
         elem.ontouchstart = ()=>{hoverUpgradedWord(word);touchStartedTime = Date.now()}
@@ -529,7 +539,8 @@ async function o_pana(){
         if(playsRemaining==0){
             document.getElementById("gameOverScreenPoints").innerHTML = base10ToNnp(points)
             document.getElementById("gameOverScreen").style.visibility = "visible"
-            if(points>Number(document.cookie.split("=")[1])){
+            if(points>highscore){
+                highscore = points
                 document.cookie="highscore="+points
             }
         }
@@ -548,6 +559,9 @@ async function animateGetPoints(letter, score,scoreChange){
     await delay(200)
 }
 async function animateMultiplyPoints(letter, score,factor){
+    if(factor==1){
+        return
+    }
     pointCounter = document.getElementById("newPointsCounter")
     letter.elem.style.borderColor = "#47A025"
     letter.elem.style.color = "#47A025"
