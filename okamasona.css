@@ -1,0 +1,47 @@
+@font-face{
+    font-family: "sitelenpona";
+    src: url("nasin-nanpa.otf");
+}
+*{
+    font-family: "sitelenpona";
+}
+body{
+    font-size: 2vw; 
+    background-color: 
+    #392F5A; 
+    width: 100%; 
+    height: 100vh; 
+    margin: 0%;
+    display: flex;
+    /* flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+}
+#textbox{
+    background-color: white;
+    border: 0.4vw solid black;
+    border-radius: 2vw;
+    width: 80vw;
+    padding: 1vw;
+    margin: auto;
+}
+
+.indent{
+    padding-left: 5vw;
+    padding-bottom: 0vw;
+}
+
+.extraInfo{
+    padding-left: 5vw;
+    padding-bottom: 0vw;
+    color: dimgray;
+}
+button{
+    font-size: 2vw;
+    background-color: #47A025;
+    color: white;
+    border: 0.2vw outset #47A025;
+}
+button:active{
+    border-style: inset;
+}

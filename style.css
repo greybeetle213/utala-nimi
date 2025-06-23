@@ -1,0 +1,367 @@
+@font-face{
+    font-family: "sitelenpona";
+    src: url("nasin-nanpa.otf");
+}
+
+
+*{
+    font-family: "sitelenpona";
+    user-select: none;
+}
+
+body{
+    background-color: #392F5A;
+    padding: 0%;
+    margin: 0%;
+    overflow-x: hidden;
+}
+
+.letterBox{
+    margin: 0.5vw;
+    background-color: #F5F2B8;
+    border: 0.3vw solid #F5F2B8;
+    color: black;
+    width: 7vw;
+    height: 7vw;
+    font-size: 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-end;
+    align-items: center;
+    border-radius: 2vw;
+    z-index: 1;
+}
+.upgradedLetterBox{
+    margin: 0.5vw;
+    background-color: #F5F2B8;
+    border: 0.3vw solid orange;
+    color: black;
+    width: 7vw;
+    height: 7vw;
+    font-size: 5vw;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-end;
+    align-items: center;
+    border-radius: 2vw;
+    z-index: 1;
+    .upgradeName{
+        color: white;
+        background-color: orange;
+        border-top: 0.2vw solid orange;
+        border-radius: 0vw 0vw 2vw 2vw;
+        width: 7vw;
+        position:absolute;
+        font-size:1vw;
+        text-align:center;
+    }
+    .toolTip{
+        visibility: hidden;
+    }
+}
+
+.upgradedLetterBox:hover>.toolTip{
+    visibility: visible;
+}
+
+.wordBG{
+    margin: 0.5vw;
+    border: 0.3vw solid #47A025;
+    color: #47A025;
+    width: 7vw;
+    height: 7vw;
+    font-size: 2vw;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    border-radius: 2vw;
+}
+
+.inputBar{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    position: static;
+    z-index: auto;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.poki_nimi{
+    border: 0.6vw solid #2F2504;
+    background-color: #CEBBC9;
+    padding: 0%;
+    height: 9vw;
+    width: fit-content;
+    border-radius: 3vw;
+}
+
+.wordBox{
+    position: relative;
+}
+
+.word{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    padding: 0%;
+    z-index: 1;
+}
+
+.wordBGBox{
+    /* position: absolute; */
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    padding: 0%;
+    z-index: 0;
+}
+
+.poki_jo{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+#nimi_pali{
+    height: 7vw;
+    font-size: 7vw;
+    width: 8vw;
+    color: white;
+}
+.pointsInfo{
+    font-size:2vw;
+    color: #47A025;
+}
+.cardsInfo{
+    font-size: 2vw;
+    color: red
+}
+button{
+    background-color: #47A025;
+    color: white;
+    border: 0px;
+    font-size: 2vw;
+    padding-top: 0.2em;
+}
+button:active{
+    border-style: inset !important;
+}
+.popup{
+    position: absolute;
+    width: 80vw;
+    height: 30vh;
+    background-color: #392F5A;
+    border: 10px solid #2F2504;
+    color:white;
+    left:10vw;
+    top:5vh;
+}
+
+.powerUpInfo{
+    font-size: 2vw;
+    flex-grow: 1.5 !important;
+    color:orange;
+}
+
+#counters{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    align-items: center;
+    padding: 1%;
+    *{
+        flex-grow: 1;
+        flex-basis: auto;    
+        text-align: center;
+    }
+}
+
+#mainLayout{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: top;
+    height: 100vh;
+    width: 100vw;
+}
+
+#mainScreen{
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#upgradeList{
+    width: 30vw;
+    height: 100%;
+    background-color: #CEBBC9;
+    padding: 0%;
+    margin: 0%;
+    overflow-y: scroll;
+}
+
+.upgrade{
+    background-color: orange;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 20vw;
+    height: 12vw;
+    margin: 1vw;
+    border-radius: 2vw;
+}
+
+.upgradeTitle{
+    font-size: 2vw; 
+    margin-top: 0.5vw;
+}
+
+.upgradeInfo{
+    font-size: 1.2vw;
+    background-color: white; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    color: black; 
+    height: max-content; 
+    width: 90%;
+    flex-grow: 1;
+    margin: 0.5vw;
+    margin-top: 0%; 
+    padding: 0.5vw;
+    padding-bottom: 0.1vw;
+    border-radius: 0vw 0vw 2vw 2vw;
+    button{
+        background-color: orange;
+        border: 0.2vw outset orange;
+        font-size: 1.2vw;
+    }
+}
+.upgradesLeft{
+    position: absolute; 
+    transform: translateY(20%) translateX(20%);
+}
+
+#chooseUpgradePopup{
+    width: 77vw;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+}
+
+#chooseUpgrade{
+    width: 80vw;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+#upgradeOptions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.fade{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #392F5A;
+    opacity: 90%;
+    z-index: 1;
+}
+#gameOverScreen{
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    height: 100vh;
+    width: 100vw;
+    z-index: 5;
+}
+#gameOverText{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 4vw;
+    color: white;
+    z-index: 1;
+}
+
+#refreshLettersPopup{
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    height: 100vh;
+    width: 100vw;
+    z-index: 5;
+}
+#refreshLettersText{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 4vw;
+    color: white;
+    z-index: 1;
+}
+#refreshLettersDiv{
+    background-color:#F5F2B8;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: black;
+    border: 0.2vw solid black;
+    padding: 0.2vw;
+    border-radius: 2vw;
+    font-size: 2vw;
+}
+
+#startScreen{
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    background-color: #392F5A;
+    transition:100ms;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+}
+
+#playButton{
+    background-color: orange;
+    color: white;
+    border: 0.2vw outset orange;
+    margin: 0.3vw;
+}
+#helpButton{
+    background-color: #47A025;
+    color: white;
+    border: 0.2vw outset #47A025;
+    margin: 0.3vw;
+}
+#addButton{
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
+    background-color: darkblue;
+    color: white;
+    border: 0.2vw outset darkblue;
+    margin: 0.3vw;
+}

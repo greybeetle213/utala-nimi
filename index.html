@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>utala nimi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script src="main.js"></script>
+</head>
+<body onload="readCookies()">
+    <div id="startScreen">
+        <div>
+            <div class="poki_nimi">
+                <div class="wordBGBox">
+                    <div class="upgradedLetterBox">
+                        󱥰
+                        <span class="upgradeName">󱥠󱦓󱥇󱥂󱦘</span>
+                    </div>
+                    <div class="letterBox">
+                        󱦜
+                    </div>            
+                    <div class="letterBox">
+                        󱤨
+                    </div>            
+                    <div class="letterBox">
+                        󱤁
+                    </div>
+                </div>
+            </div>
+            <div class="poki_nimi" style="margin-left: 8.3vw; margin-top: 0.3vw; margin-bottom: 1vw;">
+                <div class="wordBGBox">
+                    <div class="letterBox">
+                        󱤾
+                    </div>
+                    <div class="letterBox">
+                        󱤏
+                    </div>            
+                    <div class="upgradedLetterBox">
+                        󱤴
+                        <span class="upgradeName">󱤘</span>
+                    </div>            
+                    <div class="letterBox">
+                        󱦜
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <button id="playButton" onclick="init()">󱥄󱤻</button>
+            <button id="helpButton" onclick="window.location='okamasona.html'">󱥄󱤖󱥡</button>
+        </div>
+        <span style="font-size: 2vw; color: #47A025; margin-top: 1vw;">󱥔󱥞󱤽󱥳󱦓󱥫󱥐󱦘󱤧<span id="highscore">󱤂</span></span>
+        <button id="addButton" onclick="location.href='https:greybeetle213.github.io/pali_mi_pi_toki_pona'">󱥉󱤆󱦓󱤑󱦐󱥔󱦜󱥔󱦜󱦑</button>
+    </div>
+    <div id="mainLayout">
+        <div id="useUpgradeFade" style="display: none;" class="fade"><button style="background-color: red;" onclick="cancelUpgrade()">󱥄󱥁󱤂</button></div>
+        <div id="mainScreen" style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+            <div id="counters">
+                <span class="pointsInfo">󱥔󱤓󱦝<span id="pointsCounter">󱤂</span></span>
+                <span class="powerUpInfo">󱥞󱤖󱤓󱤉󱥔<span id="powerUpCountdown"></span>󱥝󱤡󱥞󱤖󱤓󱤉󱥵</span>
+                <span class="cardsInfo">󱥌󱤘󱦝<span id="playsCounter">󱤭󱤭󱤭</span></span>
+            </div>
+            <span class="pointsInfo" style="visibility: hidden; z-index: 3;" id="newPointsAlert">󱥔󱥝󱦝<span id="newPointsCounter">󱤭󱤭󱥮</span></span>
+            <div id="nimi_pali" ></div>
+            <button onclick="o_pana()" style="width: 8vw;border: 0.2vw outset #47A025;">󱥄󱥌</button>
+            <div class="inputBar">
+                <div class="poki_nimi">
+                    <div class="wordBox">
+                        <div class="fade" id="testFade"></div>
+                        <div id="word" class="word">
+                        </div>
+                    </div>
+                    <div class="wordBGBox">
+                        <div class="wordBG">󱥔󱥳</div>
+                        <div class="wordBG">󱥔󱥮</div>
+                        <div class="wordBG">󱥔󱥮󱥳</div>
+                        <div class="wordBG">󱥔󱥮󱥮</div>
+                        <div class="wordBG">󱥔󱤭</div>
+                        <div class="wordBG">󱥔󱤭󱥳</div>
+                        <div class="wordBG">󱥔󱤭󱥮</div>
+                    </div>
+                </div>
+            </div>
+            <div id="hand" class="poki_jo"></div>
+            <button onclick="document.getElementById('refreshLettersPopup').style.visibility='visible'" style="background-color: red; border: 0.2vw outset red;">󱥄󱤖󱤓󱤉󱥠󱥝</button>
+        </div>
+        <div id="chooseUpgradePopup" style="display: none;">
+            <div class="fade"></div>
+            <div id="chooseUpgrade">
+                <span style="color: white; font-size: 3vw;">󱥞󱥷󱤉󱥵󱥙</span>
+                <div id="upgradeOptions">
+                </div>
+            </div>
+        </div>
+        <div id="upgradeList">
+
+        </div>
+        <div id="toolTip">
+            
+        </div>
+    </div>
+    <div id="gameOverScreen" style="visibility: hidden;">
+        <div class="fade" style="z-index: -1;"></div>
+        <div id="gameOverText">
+            <span>󱤻󱤧󱥐</span>
+            <span style="color: #47A025;">󱥞󱤓󱤉󱥔<span id="gameOverScreenPoints"></span></span>
+            <button style="border: 0.2vw outset #47A025;" onclick="window.location.reload()">󱥄󱤻󱥝</button>
+        </div>
+    </div>
+    <div id="refreshLettersPopup" style="visibility: hidden;">
+        <div class="fade" style="z-index: -1;"></div>
+        <div id="refreshLettersText">
+            <div id="refreshLettersDiv">
+                <span>󱥞󱥷󱤂󱥷󱤉󱤋󱥁󱦝</span>
+                <span>󱤴󱥶󱤉󱤘󱥌󱥳󱥞󱦜󱥨󱤴󱥌󱤉󱥠󱤄󱦓󱤓󱥞󱦘󱥩󱥓󱥠󱤧󱥌󱤉󱥠󱥝󱥩󱥞</span>
+                <div>
+                    <button onclick="resetHandButton()" style="margin-right: 10vw; border: 0.2vw outset #47A025;">󱥷</button>
+                    <button onclick="document.getElementById('refreshLettersPopup').style.visibility='hidden'" style="background-color: red; border: 0.2vw outset red;">󱥷󱤂</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
