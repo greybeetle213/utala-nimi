@@ -435,7 +435,7 @@ function createUpgradeElem(upgrade,type){
     }else if(upgrade.type=="toolUpgrade"){
         infoElem.innerHTML = upgrade.toki_suli
     }else{
-        infoElem.innerHTML = "󱤴󱥵󱥁󱤉󱥠󱦝"+upgrade.toki_suli
+        infoElem.innerHTML = "󱥞󱤘󱥵󱥁󱤉󱥠󱦝"+upgrade.toki_suli
     }
     buttonContainerElem = document.createElement('div')
     infoElem.appendChild(buttonContainerElem)
