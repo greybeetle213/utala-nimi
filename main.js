@@ -4,8 +4,8 @@ points = 0
 playsRemaining = 15
 upgrades = {
     "plusOnePoint":{name: "plusOnePoint",nimi:"󱥔󱥳󱥝",toki_suli:"󱥞󱤙󱥆󱤡󱥞󱤖󱤓󱤉󱥔󱦕󱥝󱥳",toki:"󱥞󱤙󱥠󱥁󱤡󱥞󱤖󱤓󱤉󱥔󱥳󱥝",word_submited_function:function(){score+=1},uses:3,deckChangeCount:8,type:"letterUpgrade"},
-    "o_pana_e_sike":{name:"o_pana_e_sike",nimi:"󱥜󱥐",toki_suli:"󱥞󱤙󱥆󱤡󱥆󱤧󱥖󱥁󱦝󱥠「󱦜」󱤧󱤬󱥐󱥆󱦜󱥞󱤙󱥁󱤡󱤴󱥌󱤉󱥔󱥮󱥮󱥩󱥞",toki:"󱥞󱤙󱥠󱥁󱤡󱤿󱤧󱥖󱥁󱦝󱥠「󱦜」󱤧󱤬󱥐󱥆󱦜󱥞󱤙󱥁󱤡󱤴󱥌󱤉󱥔󱥮󱥮󱥩󱥞",letter_submited_function:oPanaESike,word_submited_function:function(){score+=4},uses:3,deckChangeCount:5,type:"letterUpgrade"},
-    "sike_open":{name:"sike_open",nimi:"󱥜󱥇",toki_suli:"󱥞󱤙󱥆󱤡󱥆󱤧󱥖󱥁󱦝󱥠「󱦜」󱤧󱤬󱥇󱥆󱦜󱥞󱤙󱥆󱤡󱤴󱥌󱤉󱥔󱤭󱥩󱥞",toki:"󱥞󱤙󱥠󱥁󱤡󱤿󱤧󱥖󱥁󱦝󱥠「󱦜」󱤧󱤬󱥇󱥍󱥠󱥁󱦜󱥞󱤙󱥆󱤡󱤴󱥌󱤉󱥔󱤭󱥩󱥞",letter_submited_function:sikeOpen,word_submited_function:function(){score+=5},uses:3,deckChangeCount:5,type:"letterUpgrade",canBeApplyedTo:function(letter){return(!letter.vowel)}},
+    "o_pana_e_sike":{name:"o_pana_e_sike",nimi:"󱥜󱥐",toki_suli:"󱥞󱤙󱥆󱤡󱥆󱤧󱥖󱥁󱦝󱥠「󱦜」󱤧󱤬󱥐󱥆󱦜󱥞󱤙󱥁󱤡󱤴󱥌󱤉󱥔󱥮󱥮󱥩󱥞",toki:"󱤿󱤧󱥖󱥁󱦝󱥠「󱦜」󱤧󱤬󱥐󱦓󱥠󱥁󱦘󱦜󱥞󱤙󱥠󱥁󱤡󱤴󱥌󱤉󱥔󱥮󱥮󱥩󱥞",letter_submited_function:oPanaESike,word_submited_function:function(){score+=4},uses:3,deckChangeCount:5,type:"letterUpgrade"},
+    "sike_open":{name:"sike_open",nimi:"󱥜󱥇",toki_suli:"󱥞󱤙󱥆󱤡󱥆󱤧󱥖󱥁󱦝󱥠「󱦜」󱤧󱤬󱥇󱥆󱦜󱥞󱤙󱥆󱤡󱤴󱥌󱤉󱥔󱤭󱥩󱥞",toki:"󱤿󱤧󱥖󱥁󱦝󱥠「󱦜」󱤧󱤬󱥇󱥍󱥠󱥁󱦜󱥞󱤙󱥠󱥁󱤡󱤴󱥌󱤉󱥔󱤭󱥩󱥞",letter_submited_function:sikeOpen,word_submited_function:function(){score+=5},uses:3,deckChangeCount:5,type:"letterUpgrade",canBeApplyedTo:function(letter){return(!letter.vowel)}},
     "StartWordOnly":{name:"StartWordOnly",nimi:"󱥠󱦓󱥇󱥂󱦘",toki_suli:"󱥞󱤘󱤙󱥆󱤬󱥇󱥂󱥨󱦜󱥨󱥞󱤙󱥆󱤡󱤴󱥮󱤉󱥔󱥁󱦝󱥞󱤖󱤓󱤉󱥆󱥧󱥉󱥂",toki:"󱥞󱤘󱤙󱥠󱥁󱤬󱥇󱥂󱥨󱦜󱥨󱥞󱤙󱥆󱤡󱤴󱥮󱤉󱥔󱥁󱦝󱥞󱤖󱤓󱤉󱥆󱥧󱥉󱥂",letter_submited_function:startWordOnly_letterSubmited,after_addition_function:startWordOnly_afterAddition,uses:1,deckChangeCount:5,type:"letterUpgrade"},
     "wawa_li_pona":{name:"wawa_li_pona",nimi:"󱥵󱤧󱥔",toki_suli:"󱥞󱤙󱥆󱤬󱥂󱤡󱥠󱥵󱤄󱥂󱤧󱥌󱤉󱥔󱥮󱥝",toki:"󱥞󱤙󱥁󱤬󱥂󱤡󱥠󱥵󱤄󱥂󱤧󱥌󱤉󱥔󱥮󱥝",uses:1,deckChangeCount:5,word_submited_function:wawaLiPona,type:"letterUpgrade"},
     "ken":{name: "ken",nimi:"󱤘",toki_suli:"󱤘󱤡󱥆󱤧󱥌󱤉󱥔󱤭󱥩󱥞󱦜󱥨󱤘󱥍󱥣󱥖󱤡󱥆󱤧󱥁󱤂",toki:"󱤘󱤡󱥁󱤧󱥌󱤉󱥔󱤭󱥩󱥞󱦜󱥨󱤘󱥍󱥣󱥖󱤡󱥆󱤧󱥁󱤂",word_submited_function:function(){score+=Math.round(Math.random())*5},uses:2,deckChangeCount:5,type:"letterUpgrade"},
