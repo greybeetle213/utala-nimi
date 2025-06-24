@@ -431,11 +431,11 @@ function createUpgradeElem(upgrade,type){
     }else if(upgrade.type=="instantUpgrade"){
         infoElem.innerHTML = upgrade.toki_suli
     }else if(type=="changeDeck"){
-        infoElem.innerHTML = "󱥄󱥵󱤉󱥠"+base10ToNnp(upgrade.deckChangeCount)+"󱤬󱥓󱥠󱥞󱥩󱥁󱦝<br>"+upgrade.toki_suli
+        infoElem.innerHTML = "󱤴󱥵󱤉󱥠"+base10ToNnp(upgrade.deckChangeCount)+"󱤬󱥓󱥠󱥞󱥩󱥁󱦝<br>"+upgrade.toki_suli
     }else if(upgrade.type=="toolUpgrade"){
         infoElem.innerHTML = upgrade.toki_suli
     }else{
-        infoElem.innerHTML = "󱥄󱥵󱥁󱤉󱥠󱦝"+upgrade.toki_suli
+        infoElem.innerHTML = "󱤴󱥵󱥁󱤉󱥠󱦝"+upgrade.toki_suli
     }
     buttonContainerElem = document.createElement('div')
     infoElem.appendChild(buttonContainerElem)
